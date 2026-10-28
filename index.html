@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071327">
+<title>THE CARE EDIT — бережный уход за кожей</title>
+
+<style>
+/* ---------- Цвета и основа ---------- */
+:root {
+  color-scheme: dark;
+  --bg: #071327;
+  --surface: #0d1e38;
+  --surface-light: #132946;
+  --text: #f1f0ec;
+  --muted: #b6c3d6;
+  --gold: #e6c68a;
+  --gold-bright: #ffe4ac;
+  --line: rgba(230, 198, 138, .22);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.75 Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+a { color: inherit; }
+
+button { font: inherit; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 6px;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1, h2, .serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(32px, 4.5vw, 53px);
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+p { margin-bottom: 18px; }
+
+p:last-child { margin-bottom: 0; }
+
+em {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+strong { color: var(--text); }
+
+mark {
+  background: rgba(230, 198, 138, .12);
+  color: var(--gold-bright);
+  padding: 2px 5px;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.container {
+  width: min(1160px, calc(100% - 56px));
+  margin: auto;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.muted { color: var(--muted); }
+
+.section {
+  padding: 78px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-header {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.section-header p { color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* ---------- Навигация ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(7, 19, 39, .97);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 17px;
+  letter-spacing: .16em;
+  white-space: nowrap;
+}
+
+.logo span { color: var(--gold); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 13px;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav a:hover { color: var(--gold); }
+
+.print-small {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--gold);
+  padding: 8px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* ---------- Обложка ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 50px;
+  min-height: 670px;
+  padding: 65px 0;
+}
+
+.hero h1 {
+  font-size: clamp(49px, 7.5vw, 91px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  margin-bottom: 28px;
+}
+
+.hero-copy {
+  max-width: 490px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--line);
+}
+
+.button:hover { filter: brightness(1.08); }
+
+.cover-note {
+  display: block;
+  margin-top: 23px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+/* Декоративный натюрморт — без внешних картинок */
+.still-life {
+  position: relative;
+  min-height: 490px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 180px 180px 8px 8px;
+  background:
+    radial-gradient(ellipse at 50% 30%, #244569 0, transparent 64%),
+    linear-gradient(135deg, #10233e, #08172e);
+}
+
+.still-life::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(230, 198, 138, .13);
+  border-radius: 160px 160px 3px 3px;
+}
+
+.orbit {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(230, 198, 138, .35);
+  border-radius: 50%;
+  left: 50%;
+  top: 60px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 60px rgba(230, 198, 138, .05);
+}
+
+.apple-symbol {
+  position: absolute;
+  width: 102px;
+  height: 110px;
+  top: 90px;
+  left: calc(50% - 51px);
+  color: var(--gold);
+  filter: drop-shadow(0 0 16px rgba(230, 198, 138, .2));
+}
+
+.podium {
+  position: absolute;
+  height: 100px;
+  left: 30px;
+  right: 30px;
+  bottom: 38px;
+  border: 1px solid #34516d;
+  border-radius: 50% 50% 8px 8px / 22% 22% 8px 8px;
+  background: linear-gradient(100deg, #142b47, #2c4561, #0e233d);
+}
+
+.bottle {
+  position: absolute;
+  width: 95px;
+  height: 199px;
+  bottom: 117px;
+  left: 23%;
+  border: 1px solid #8c9ba8;
+  border-radius: 14px 14px 10px 10px;
+  background: linear-gradient(90deg, #20374e, #7b8b96 44%, #344d65 68%, #132940);
+  box-shadow: 16px 18px 30px #0005;
+  transform: rotate(-7deg);
+}
+
+.bottle::before {
+  content: "";
+  position: absolute;
+  height: 44px;
+  width: 58px;
+  top: -43px;
+  left: 17px;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(90deg, #917344, #f0d59b, #a18751);
+}
+
+.bottle-label {
+  position: absolute;
+  inset: 60px 8px 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: #0a1a30;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: .17em;
+}
+
+.bottle-label span {
+  font-size: 7px;
+  color: var(--muted);
+  margin-top: 9px;
+}
+
+.jar {
+  position: absolute;
+  width: 144px;
+  height: 90px;
+  right: 12%;
+  bottom: 112px;
+  border: 1px solid #576e86;
+  border-radius: 10px 10px 20px 20px;
+  background: linear-gradient(90deg, #122a43, #45617b, #142b45);
+  box-shadow: 10px 15px 25px #0005;
+}
+
+.jar::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  top: -23px;
+  left: -3px;
+  right: -3px;
+  border-radius: 7px 7px 2px 2px;
+  background: linear-gradient(90deg, #a08048, #f1d49c, #ac8b52);
+}
+
+.jar span {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  color: var(--gold-bright);
+  font: 15px Georgia, serif;
+  letter-spacing: .1em;
+}
+
+.art-caption {
+  position: absolute;
+  bottom: 14px;
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: .2em;
+}
+
+/* ---------- Статьи ---------- */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  margin-bottom: 65px;
+}
+
+.principle {
+  padding: 24px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.principle + .principle { border-left: 1px solid var(--line); }
+
+.principle strong {
+  display: block;
+  color: var(--gold);
+  margin-bottom: 4px;
+  font: 23px Georgia, serif;
+}
+
+.article {
+  padding: 32px;
+  background: linear-gradient(130deg, var(--surface-light), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.article p { color: var(--muted); }
+
+.article-number {
+  display: block;
+  font: italic 43px Georgia, serif;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.article h3 {
+  font: 28px Georgia, serif;
+  margin-bottom: 24px;
+}
+
+.subheading {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.note {
+  padding: 22px 26px;
+  margin-top: 24px;
+  border-left: 2px solid var(--gold);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.quote {
+  margin: 35px 0 0;
+  padding: 28px 0;
+  border-block: 1px solid var(--line);
+  font: 28px/1.4 Georgia, serif;
+  color: var(--gold);
+}
+/* ---------- Подборки ---------- */
+.category-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 17px;
+  margin: 42px 0 20px;
+}
+
+.category-heading span {
+  color: var(--gold);
+  font: italic 25px Georgia, serif;
+}
+
+.category-heading h3 {
+  font: 29px Georgia, serif;
+  margin: 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  transition: transform .2s, border-color .2s;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.product-tag {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.product h4 {
+  margin: 14px 0 12px;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.product p {
+  color: var(--muted);
+  font-size: 13px;
+  flex: 1;
+}
+
+.product a {
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.product a:hover { text-decoration: underline; }
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.collection {
+  background: linear-gradient(155deg, #193350, #0d1e38 75%);
+  border: 1px solid var(--line);
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.collection h3 { font: 29px Georgia, serif; }
+
+.collection p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.collection ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.collection li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.collection a {
+  color: var(--gold);
+  text-underline-offset: 4px;
+}
+
+.safety-list {
+  margin: 0;
+  padding-left: 19px;
+  color: var(--muted);
+}
+
+.safety-list li { margin-bottom: 15px; }
+
+.pdf-panel {
+  text-align: center;
+  padding: 54px 30px;
+  background: radial-gradient(ellipse at top, #203d5b, #0b1d36 75%);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.pdf-panel p {
+  max-width: 610px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+}
+
+.footer {
+  padding: 35px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer p { max-width: 850px; }
+
+/* ---------- Мобильная версия ---------- */
+@media (max-width: 900px) {
+  .nav { gap: 15px; }
+  .nav .optional { display: none; }
+  .hero { gap: 25px; }
+  .still-life { min-height: 440px; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collection-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .container { width: calc(100% - 32px); }
+  .header-inner { min-height: 66px; }
+  .logo { font-size: 13px; letter-spacing: .1em; }
+  .nav > a { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 45px 0;
+    gap: 35px;
+  }
+  .hero h1 { font-size: 58px; }
+  .hero-copy { font-size: 16px; }
+  .still-life {
+    width: min(390px, 100%);
+    min-height: 450px;
+    margin: auto;
+  }
+  .principles { grid-template-columns: 1fr; margin-bottom: 45px; }
+  .principle + .principle {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .grid, .product-grid { grid-template-columns: 1fr; }
+  .section { padding: 48px 0; }
+  .article { padding: 25px; }
+  .product { padding: 23px; }
+  .pdf-panel { padding: 35px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .product { transition: none; }
+}
+
+/* ---------- PDF / печать ---------- */
+@page {
+  size: A4;
+  margin: 13mm;
+}
+
+@media print {
+  html, body {
+    background: #071327 !important;
+    color: #f1f0ec !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 10pt;
+  }
+
+  .header, .actions, .pdf-panel, .no-print { display: none !important; }
+  .container { width: 100%; }
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1.2fr 1fr;
+    padding: 20px 0 30px;
+    gap: 25px;
+  }
+  .hero h1 { font-size: 44pt; }
+  .hero-copy { font-size: 11pt; }
+  .still-life { min-height: 350px; }
+  .orbit { width: 190px; height: 190px; top: 40px; }
+  .apple-symbol { top: 55px; width: 70px; left: calc(50% - 35px); }
+  .bottle { height: 150px; width: 75px; left: 17%; bottom: 95px; }
+  .bottle::before { left: 13px; width: 47px; height: 33px; top: -32px; }
+  .bottle-label { inset: 38px 6px 20px; }
+  .jar { width: 105px; height: 70px; right: 9%; bottom: 90px; }
+  .jar span { font-size: 11px; }
+  .podium { bottom: 30px; height: 80px; }
+  .section { padding: 27px 0; }
+  h2 { font-size: 28pt; }
+  .section-header { margin-bottom: 20px; }
+  .principles { margin-bottom: 25px; }
+  .principle { padding: 14px; font-size: 9pt; }
+  .grid { gap: 14px; }
+  .article { padding: 20px; }
+  .article h3 { font-size: 20pt; }
+  .article-number { font-size: 28pt; margin-bottom: 12px; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .product { padding: 16px; }
+  .product h4 { font-size: 11pt; }
+  .product p, .product a { font-size: 9pt; }
+  .collection-grid { grid-template-columns: 1fr; gap: 14px; }
+  .collection { padding: 20px; }
+  .collection ul { margin: 12px 0; }
+  .note { padding: 15px 20px; font-size: 10pt; }
+  .product, .collection, .note, .principle, .still-life {
+    break-inside: avoid;
+  }
+  h2, h3, .category-heading { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  .footer { font-size: 9pt; }
+}
+</style>
+</head>
+
+<body id="top">
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="#top">THE CARE <span>EDIT</span></a>
+    <nav class="nav" aria-label="Навигация по сайту">
+      <a href="#routine">Уход</a>
+      <a href="#catalog">Косметика</a>
+      <a class="optional" href="#collections">Подборки</a>
+      <a class="optional" href="#safety">Важное</a>
+      <button class="print-small" type="button" data-print>
+        PDF ↓
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">Личный гид · сухая кожа · 12+</span>
+        <h1 id="hero-title">Искусство<br><em>бережного</em><br>ухода.</h1>
+        <p class="hero-copy">
+          Хорошая косметичка начинается не с количества средств,
+          а с понимания своей кожи. Здесь — спокойный уход,
+          красивые подборки и ничего лишнего.
+        </p>
+        <div class="actions">
+          <a class="button" href="#catalog">Открыть подборку ↗️</a>
+          <button class="button secondary" type="button" data-print>
+            Сохранить в PDF ↓
+          </button>
+        </div>
+        <span class="cover-note">
+          ПОИСК СРЕДСТВ В ЗОЛОТОМ ЯБЛОКЕ · БЕЗ ТЕСТОВ И ЗАДАНИЙ
+        </span>
+      </div>
+
+      <div class="still-life" role="img"
+           aria-label="Косметический натюрморт: синий флакон, баночка крема и золотой контур яблока">
+        <div class="orbit"></div>
+        <svg class="apple-symbol" viewBox="0 0 100 110"
+             fill="none" aria-hidden="true">
+          <path d="M50 32C24 12 5 33 10 60C15 91 33 103 46 94
+                   C49 92 52 92 56 94C70 104 88 85 92 59
+                   C96 32 76 13 50 32Z"
+                stroke="currentColor" stroke-width="1.5"/>
+          <path d="M50 32C49 21 52 13 58 7
+                   M56 20C65 4 80 5 86 8C81 20 68 25 56 20Z"
+                stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <div class="podium"></div>
+        <div class="bottle">
+          <div class="bottle-label">
+            THE CARE
+            <span>GENTLE CLEANSE</span>
+          </div>
+        </div>
+        <div class="jar"><span>daily comfort</span></div>
+        <div class="art-caption">A QUIET MOMENT FOR YOURSELF</div>
+      </div>
+    </section>
+
+    <div class="principles">
+      <div class="principle">
+        <strong>01 / Очищать мягко</strong>
+        Без скрабов, горячей воды и ощущения «до скрипа».
+      </div>
+      <div class="principle">
+        <strong>02 / Увлажнять</strong>
+        Поддерживать кожный барьер и ощущение комфорта.
+      </div>
+      <div class="principle">
+        <strong>03 / Защищать</strong>
+        Использовать SPF и не забывать про тень и головной убор.
+      </div>
+    </div>
+  </div>
+
+  <section id="routine" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Ежедневный ритуал</span>
+        <h2>Несколько минут.<br><em>Без сложных правил.</em></h2>
+        <p>
+          Для сухой кожи в 12 лет обычно достаточно мягкого очищения,
+          крема и солнцезащиты. Это рекомендации, а не список заданий:
+          ничего отмечать и подсчитывать не нужно.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="article">
+          <span class="article-number">AM</span>
+          <h3>Утро / увлажнение и защита</h3>
+
+          <p>
+            <span class="subheading">Мягкое умывание</span>
+            Используй чуть тёплую воду. Если кожа сухая и утром нет
+            выраженной жирности, можно обойтись без очищающего средства.
+            При необходимости возьми немного мягкого геля или крема
+            для умывания и смой без интенсивного трения.
+          </p>
+          <p>
+            <span class="subheading">Увлажняющий крем</span>
+            Промокни лицо чистым мягким полотенцем. Нанеси крем на слегка
+            влажную кожу — столько, чтобы он равномерно распределился
+            и убрал чувство стянутости.
+          </p>
+          <p>
+            <span class="subheading">Солнцезащита</span>
+            Перед выходом на улицу используй
+            <mark>SPF 30–50 с защитой от UVA и UVB</mark>.
+            Наноси по инструкции, обычно примерно за 15 минут до выхода.
+            Две полоски средства вдоль указательного и среднего пальцев —
+            приблизительный ориентир для лица и шеи, а не точная мера.
+          </p>
+          <p>
+            На улице обновляй SPF примерно каждые два часа, а также после
+            купания, сильного потоотделения или вытирания полотенцем.
+            При сухости губ добавь простой бальзам.
+          </p>
+        </article>
+
+        <article class="article">
+          <span class="article-number">PM</span>
+          <h3>Вечер / очищение и комфорт</h3>
+
+          <p>
+            <span class="subheading">Смыть всё лишнее</span>
+            Мягко удали загрязнения, пот и солнцезащитное средство.
+            Для водостойкого SPF или макияжа выбирай способ удаления,
+            указанный производителем. Двойное очищение не обязательно,
+            если одного мягкого средства достаточно.
+          </p>
+          <p>
+            <span class="subheading">Вернуть ощущение комфорта</span>
+            Нанеси увлажняющий крем. Если кожа стягивается или шелушится,
+            можно выбрать более насыщенную текстуру без отдушки.
+            Не нужно добавлять несколько слоёв активных сывороток.
+          </p>
+          <p>
+            <span class="subheading">Губы и руки — по необходимости</span>
+            Бальзам для губ и крем для рук пригодятся при сухости,
+            особенно после частого мытья рук и в холодную погоду.
+          </p>
+          <p>
+            <mark>Уход вполне может закончиться на этом.</mark>
+            Отдельный крем для глаз, антивозрастные средства и
+            многоступенчатые схемы в этом возрасте не нужны.
+          </p>
+        </article>
+      </div>
+
+      <div class="note">
+        <strong>Что искать в базовом креме:</strong>
+        глицерин, церамиды и другие компоненты, помогающие удерживать влагу.
+        Для чувствительной кожи предпочтительнее отсутствие отдушки.
+        Надпись «гипоаллергенно» не гарантирует, что реакции не будет.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Смена сезона</span>
+        <h2>Меняется погода —<br><em>меняется текстура.</em></h2>
+      </div>
+      <div class="grid">
+        <article class="article">
+          <h3>Холодное время года</h3>
+          <p>
+            При сухом воздухе может понадобиться более плотный крем.
+            Наноси его так, чтобы он успел впитаться до выхода.
+            Обязательного правила «ровно за 30 минут» нет.
+          </p>
+          <p>
+            Защищай руки перчатками, а губы — бальзамом.
+            Cicaplast можно рассматривать как дополнительный уход
+            за сухими участками, а не обязательную замену обычному крему.
+          </p>
+        </article>
+        <article class="article">
+          <h3>Тёплое время года</h3>
+          <p>
+            Если насыщенный крем кажется тяжёлым, попробуй более лёгкий,
+            но только если он достаточно увлажняет.
+            Сухая кожа может нуждаться в плотной текстуре и летом.
+          </p>
+          <p>
+            Используй солнцезащиту на открытых участках кожи.
+            Облака не полностью задерживают ультрафиолет.
+            На улице помогают также тень, одежда и головной убор.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The beauty selection</span>
+        <h2>Косметика, которую<br><em>можно рассмотреть.</em></h2>
+        <p>
+          Аптечные линейки, корейские бренды и более доступные варианты.
+          Выбирай одно подходящее средство в каждой основной категории,
+          а не всю подборку сразу.
+        </p>
+      </div>
+
+      <div class="note">
+        <strong>О ссылках и выборе.</strong>
+        Кнопки открывают поисковые запросы на сайте Золотого Яблока.
+        Наличие, цены и работу поиска я не проверяла.
+        Если поиск не откроется, введи название в приложении магазина.
+        Вместе со взрослым проверь конкретную версию средства,
+        состав, инструкцию и возрастные рекомендации:
+        пометка «12+» относится к этому гиду, а не ко всем товарам.
+      </div>
+
+      <div id="catalog-content"></div>
+
+      <noscript>
+        <div class="note">
+          Для отображения карточек включи JavaScript.
+          Основные примеры для самостоятельного поиска:
+          La Roche-Posay Toleriane Sensitive,
+          Bioderma Atoderm, Librederm Cerafavit,
+          Avène детский SPF 50+.
+          Остальные рекомендации доступны без JavaScript.
+        </div>
+      </noscript>
+
+      <p class="quote">
+        «Дороже» не означает «лучше для твоей кожи».
+        Главный критерий — <em>переносимость и комфорт.</em>
+      </p>
+    </div>
+  </section>
+
+  <section id="collections" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Готовые сочетания</span>
+        <h2>Три направления.<br><em>Не три списка покупок.</em></h2>
+        <p>
+          Это примеры сочетаний, а не гарантия совместимости с твоей кожей.
+          Не меняй уже подходящее средство только ради единого бренда.
+          Ценовые категории условные: сравнивай актуальные цены и объём.
+        </p>
+      </div>
+
+      <div class="collection-grid">
+        <article class="collection">
+          <span class="eyebrow">01 / Аптечная основа</span>
+          <h3>Спокойная база</h3>
+          <p>Простое сочетание из основных категорий.</p>
+          <ul>
+            <li>
+              Очищение —
+              <a data-search="Avene Tolerance очищающий лосьон">
+                Avène Tolérance
+              </a>
+            </li>
+            <li>
+              Крем —
+              <a data-search="La Roche-Posay Toleriane Sensitive">
+                Toleriane Sensitive
+              </a>
+            </li>
+            <li>
+              Защита —
+              <a data-search="Avene детский SPF 50">
+                Avène детский SPF 50+
+              </a>
+            </li>
+            <li>
+              Губы —
+              <a data-search="La Roche-Posay Cicaplast Levres">
+                Cicaplast Lèvres
+              </a>
+            </li>
+          </ul>
+          <p>При склонности к раздражению особенно внимательно проверяй состав.</p>
+        </article>
+
+        <article class="collection">
+          <span class="eyebrow">02 / Корейская подборка</span>
+          <h3>Интерес к текстурам</h3>
+          <p>Не обязательный выбор для 12 лет — сначала проверь инструкцию.</p>
+          <ul>
+            <li>
+              Очищение —
+              <a data-search="Round Lab 1025 Dokdo Cleanser">
+                Round Lab Dokdo
+              </a>
+            </li>
+            <li>
+              Крем —
+              <a data-search="Dr Jart Ceramidin Cream">
+                Dr.Jart+ Ceramidin
+              </a>
+            </li>
+            <li>
+              Защита —
+              <a data-search="Beauty of Joseon Relief Sun">
+                Beauty of Joseon Relief Sun
+              </a>
+            </li>
+            <li>Губы — простой бальзам без отдушки.</li>
+          </ul>
+          <p>
+            Растительные экстракты и ароматические компоненты могут раздражать.
+            При чувствительной коже разумнее более простая формула.
+          </p>
+        </article>
+
+        <article class="collection">
+          <span class="eyebrow">03 / Внимание к бюджету</span>
+          <h3>Разумный минимум</h3>
+          <p>Бюджет лучше направить на три действительно нужных средства.</p>
+          <ul>
+            <li>
+              Очищение —
+              <a data-search="Librederm очищение сухая кожа">
+                мягкое средство Librederm
+              </a>
+            </li>
+            <li>
+              Крем —
+              <a data-search="Librederm Cerafavit">
+                Librederm Cerafavit
+              </a>
+            </li>
+            <li>
+              Защита —
+              <a data-search="Librederm SPF 50">
+                подходящий Librederm SPF 50
+              </a>
+            </li>
+            <li>Губы — простой бальзам или вазелин без добавок.</li>
+          </ul>
+          <p>
+            Сравнивай стоимость за одинаковый объём.
+            Маски и дополнительные сыворотки можно не покупать.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Необязательные дополнения</span>
+        <h2>Не всё красивое<br><em>обязательно нужно.</em></h2>
+      </div>
+
+      <div class="grid">
+        <article class="article">
+          <h3>Маски, скрабы и пилинги</h3>
+          <p>
+            Тканевая маска не нужна для полноценного ухода.
+            Если хочется попробовать, выбирай простую увлажняющую,
+            соблюдай время на упаковке и сразу снимай при жжении.
+            Не оставляй её на ночь.
+          </p>
+          <p>
+            <mark>Скрабы, щётки и домашние пилинги при сухости лучше исключить.</mark>
+            Еженедельный «глубокий уход» не обязателен.
+          </p>
+        </article>
+
+        <article class="article">
+          <h3>Если появляются прыщики</h3>
+          <p>
+            Во время взросления кожа меняется. Не выдавливай воспаления
+            и не прижигай их спиртом. Гидроколлоидный патч без активных
+            добавок иногда помогает не трогать поверхностный прыщик,
+            но не лечит все виды акне.
+          </p>
+          <p>
+            При частых, болезненных воспалениях или следах обратись
+            к дерматологу. Средства для лечения акне не запрещены из-за
+            возраста — при необходимости врач подберёт подходящие.
+          </p>
+        </article>
+
+        <article class="article">
+          <h3>Привычки без перфекционизма</h3>
+          <p>
+            Не три лицо, пользуйся чистым полотенцем, регулярно стирай
+            наволочку и очищай экран телефона. Не нужно превращать
+            это в строгий график или пытаться сделать всё стерильным.
+          </p>
+          <p>
+            Высыпайся и пей по жажде. Дополнительные литры воды не заменяют
+            крем. <mark>Прыщи не означают, что ты плохо умываешься.</mark>
+          </p>
+        </article>
+
+        <article class="article">
+          <h3>Что не нужно покупать заранее</h3>
+          <p>
+            Косметический ретинол, антивозрастные средства, кислотные
+            тоники и сильные отшелушивающие сыворотки не нужны для
+            обычного ухода за сухой кожей в 12 лет.
+          </p>
+          <p>
+            Не выбирай средство только потому, что оно популярно.
+            У кожи нет обязанности выдерживать жжение ради результата.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Самое важное</span>
+        <h2>Забота — это ещё<br><em>и безопасность.</em></h2>
+      </div>
+
+      <div class="grid">
+        <article class="article">
+          <h3>Как вводить новое средство</h3>
+          <ul class="safety-list">
+            <li>
+              Добавляй средства по одному, с промежутком в несколько дней.
+              Так проще заметить, что вызвало реакцию.
+            </li>
+            <li>
+              Сначала попробуй небольшое количество на маленьком участке
+              неповреждённой кожи, соблюдая инструкцию.
+              Проба на запястье в течение суток не исключает аллергию
+              или раздражение на лице.
+            </li>
+            <li>
+              При жжении, сыпи или выраженном покраснении смой средство,
+              прекрати его использование и расскажи взрослому.
+            </li>
+            <li>
+              Проверяй срок годности и не делись средствами,
+              которые непосредственно касаются губ или кожи.
+            </li>
+          </ul>
+        </article>
+
+        <article class="article">
+          <h3>Когда нужен дерматолог</h3>
+          <ul class="safety-list">
+            <li>Сохраняются сильное шелушение, зуд, краснота или трещинки.</li>
+            <li>Появляются болезненные воспаления, много высыпаний или рубцы.</li>
+            <li>Реакция на косметику выраженная или не проходит после отмены.</li>
+            <li>Обычный мягкий уход не помогает справиться с сухостью.</li>
+          </ul>
+          <div class="note">
+            При отёке губ или языка, затруднённом дыхании после средства
+            <strong>нужна срочная медицинская помощь</strong>.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section no-print">
+    <div class="container">
+      <div class="pdf-panel">
+        <span class="eyebrow">Твой beauty-гид с собой</span>
+        <h2>Сохрани подборку<br><em>в красивом PDF.</em></h2>
+        <p>
+          Кнопка откроет окно печати браузера.
+          Выбери «Сохранить как PDF». В дополнительных настройках
+          включи фоновую графику и отключи колонтитулы, чтобы оставить
+          тёмно-синее оформление без даты и адреса страницы.
+        </p>
+        <button class="button" type="button" data-print>
+          Сохранить в PDF ↓
+        </button>
+        <p style="font-size:12px;margin-top:20px">
+          В большинстве браузеров ссылки сохраняются кликабельными.
+          На телефоне сохранение PDF может находиться в меню
+          «Поделиться» или «Печать».
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span class="eyebrow">THE CARE EDIT</span>
+    <p>
+      Независимый информационный гид, не официальный сайт Золотого Яблока.
+      Золотое яблоко в оформлении — декоративный мотив, не логотип магазина.
+      Изображения флакона и крема условные, не фотографии товаров.
+    </p>
+    <p>
+      Подборка не заменяет консультацию дерматолога.
+      Составы, ассортимент и рекомендации производителей могут меняться.
+      Подходящий уход выбирают с учётом состояния кожи и индивидуальной
+      переносимости, при необходимости вместе со взрослым и врачом.
+    </p>
+  </div>
+</footer>
+
+<script>
+/*
+  Поисковые ссылки не являются проверенными карточками товаров.
+  При изменении адреса поиска магазина достаточно заменить searchBase.
+*/
+const searchBase = "https://goldapple.ru/catalogsearch/result?q=";
+
+function makeSearchLink(query) {
+  return searchBase + encodeURIComponent(query);
+}
+
+const categories = [
+  {
+    number: "01",
+    title: "Мягкое очищение",
+    items: [
+      {
+        name: "La Roche-Posay Toleriane",
+        tag: "Аптечная линейка",
+        text: "Ищи мягкое очищающее средство для сухой чувствительной кожи. В линейке есть разные версии — проверь точное назначение.",
+        query: "La Roche-Posay Toleriane очищение сухая кожа"
+      },
+      {
+        name: "Avène Tolérance",
+        tag: "Очищающий лосьон",
+        text: "Вариант для бережного очищения. Способ применения и необходимость смывания уточняй на упаковке.",
+        query: "Avene Tolerance очищающий лосьон"
+      },
+      {
+        name: "Bioderma Atoderm",
+        tag: "Для сухой кожи",
+        text: "Выбирай конкретную версию, подходящую для лица и возраста. Если после умывания стягивает кожу, средство стоит заменить.",
+        query: "Bioderma Atoderm очищающий гель"
+      },
+      {
+        name: "Round Lab 1025 Dokdo Cleanser",
+        tag: "Корея",
+        text: "Пенящееся средство не обязательно будет комфортным при сухости. Проверяй инструкцию и ощущения после умывания.",
+        query: "Round Lab 1025 Dokdo Cleanser"
+      },
+      {
+        name: "Holly Polly — очищение",
+        tag: "Сравнить по цене",
+        text: "Название бренда не определяет мягкость средства. Ищи версию для сухой кожи, по возможности без отдушки.",
+        query: "Holly Polly очищение сухая кожа"
+      },
+      {
+        name: "Librederm — очищение",
+        tag: "Сравнить по цене",
+        text: "Рассмотри мягкое средство для сухой чувствительной кожи, а не интенсивно очищающий гель против жирности.",
+        query: "Librederm очищение сухая чувствительная кожа"
+      }
+    ]
+  },
+  {
+    number: "02",
+    title: "Крем и поддержка кожного барьера",
+    items: [
+      {
+        name: "La Roche-Posay Toleriane Sensitive",
+        tag: "Базовое увлажнение",
+        text: "Один из вариантов ежедневного крема. Не гарантирует переносимость: вводи отдельно от других новых средств.",
+        query: "La Roche-Posay Toleriane Sensitive"
+      },
+      {
+        name: "La Roche-Posay Cicaplast Baume B5+",
+        tag: "Дополнительный комфорт",
+        text: "Можно рассмотреть для сухих участков по инструкции. Это не обязательный ежедневный шаг и не лечение любой сыпи.",
+        query: "La Roche-Posay Cicaplast Baume B5+"
+      },
+      {
+        name: "Bioderma Atoderm / Hydrabio",
+        tag: "Разные линейки",
+        text: "Atoderm и Hydrabio — не одно и то же средство. Проверяй состав, отдушку и назначение выбранной версии.",
+        query: "Bioderma Atoderm Hydrabio крем"
+      },
+      {
+        name: "Uriage Eau Thermale",
+        tag: "Увлажнение",
+        text: "Выбирай текстуру по сухости кожи. Для чувствительной кожи особенно важно проверить наличие отдушки.",
+        query: "Uriage Eau Thermale крем"
+      },
+      {
+        name: "Avène Hydrance",
+        tag: "Увлажнение",
+        text: "В линейке есть разные текстуры. Уточняй возрастные рекомендации и состав конкретного крема.",
+        query: "Avene Hydrance"
+      },
+      {
+        name: "Dr.Jart+ Ceramidin Cream",
+        tag: "Корея",
+        text: "Насыщенный крем не обязательно нужен в 12 лет. Проверь ароматические компоненты и переносимость.",
+        query: "Dr Jart Ceramidin Cream"
+      },
+      {
+        name: "Round Lab Birch Juice Moisturizing Cream",
+        tag: "Корея",
+        text: "Растительные компоненты не делают средство автоматически безопаснее. При чувствительности нужна осторожность.",
+        query: "Round Lab Birch Juice Moisturizing Cream"
+      },
+      {
+        name: "Librederm Cerafavit",
+        tag: "Сравнить по цене",
+        text: "Линейка с церамидами. Выбирай продукт, который подходит для лица и разрешён по возрасту.",
+        query: "Librederm Cerafavit"
+      },
+      {
+        name: "Holly Polly — увлажняющий крем",
+        tag: "Сравнить по цене",
+        text: "Рассматривай только конкретный состав. Избегай отшелушивающих и антивозрастных формул для базового ухода.",
+        query: "Holly Polly увлажняющий крем"
+      }
+    ]
+  },
+  {
+    number: "03",
+    title: "Защита от солнца",
+    items: [
+      {
+        name: "Avène — детский SPF 50+",
+        tag: "Детская линейка",
+        text: "Проверь защиту от UVA и UVB. Наноси достаточное количество по инструкции и обновляй на улице.",
+        query: "Avene детский SPF 50"
+      },
+      {
+        name: "La Roche-Posay Anthelios Dermo-Pediatrics",
+        tag: "Детская линейка",
+        text: "Уточни точное название доступной версии, SPF и возрастные указания на упаковке.",
+        query: "La Roche-Posay Anthelios Dermo Pediatrics"
+      },
+      {
+        name: "Bioderma Photoderm — детская версия",
+        tag: "Детская линейка",
+        text: "Название детской серии может различаться. Ищи средство SPF 50+ с защитой широкого спектра.",
+        query: "Bioderma Photoderm детский SPF 50"
+      },
+      {
+        name: "Uriage Bariésun Kids SPF 50+",
+        tag: "Детская линейка",
+        text: "Выбирай комфортную текстуру. Водостойкость не отменяет обновление после купания и полотенца.",
+        query: "Uriage Bariesun Kids SPF 50"
+      },
+      {
+        name: "Beauty of Joseon Relief Sun",
+        tag: "Корея",
+        text: "Не детская линейка. Проверь инструкцию, точную версию и ограничения производителя.",
+        query: "Beauty of Joseon Relief Sun"
+      },
+      {
+        name: "Round Lab Birch Juice Sun Cream",
+        tag: "Корея",
+        text: "Не путай с обычным увлажняющим кремом этой серии. Для активного отдыха проверяй водостойкость.",
+        query: "Round Lab Birch Juice Moisturizing Sun Cream"
+      },
+      {
+        name: "SKIN1004 Hyalu-Cica Sun Serum",
+        tag: "Корея",
+        text: "Проверь полное название солнцезащитного продукта и возрастные указания. Не вся линейка Centella содержит SPF.",
+        query: "SKIN1004 Madagascar Centella Hyalu Cica Sun Serum"
+      },
+      {
+        name: "Librederm — SPF 50",
+        tag: "Сравнить по цене",
+        text: "Выбирай подходящую по возрасту защиту от UVA и UVB. Цена не заменяет проверку инструкции.",
+        query: "Librederm солнцезащитный SPF 50"
+      }
+    ]
+  },
+  {
+    number: "04",
+    title: "Губы, руки и необязательные дополнения",
+    items: [
+      {
+        name: "Cicaplast Lèvres / Bioderma Atoderm",
+        tag: "Бальзамы для губ",
+        text: "Выбери один подходящий бальзам. При чувствительности предпочтительнее вариант без отдушки и вкусовых добавок.",
+        query: "Cicaplast Levres Bioderma Atoderm губы"
+      },
+      {
+        name: "Holly Polly — бальзам для губ",
+        tag: "Проверить состав",
+        text: "Красивый аромат не обязателен. При жжении или шелушении откажись от ароматизированного средства.",
+        query: "Holly Polly бальзам губы"
+      },
+      {
+        name: "La Roche-Posay Cicaplast Mains",
+        tag: "Крем для рук",
+        text: "Дополнение при сухости рук. Применяй по инструкции и проверь возрастные рекомендации.",
+        query: "La Roche-Posay Cicaplast Mains"
+      },
+      {
+        name: "Librederm / Holly Polly — крем для рук",
+        tag: "Сравнить по цене",
+        text: "Выбирай по составу и комфорту. При трещинках и раздражении лучше простая формула без отдушки.",
+        query: "Librederm Holly Polly крем рук"
+      },
+      {
+        name: "Mediheal — увлажняющая маска",
+        tag: "Не обязательна",
+        text: "У бренда разные маски: выбирай без отшелушивающих активов. При жжении сразу сними и смой остатки.",
+        query: "Mediheal увлажняющая маска"
+      },
+      {
+        name: "Гидроколлоидные патчи",
+        tag: "Для отдельных высыпаний",
+        text: "Рассмотри обычные патчи без кислот и микроигл. Они не заменяют лечение акне.",
+        query: "гидроколлоидные патчи"
+      }
+    ]
+  }
+];
+
+function createProduct(item) {
+  const card = document.createElement("article");
+  card.className = "product";
+
+  const tag = document.createElement("span");
+  tag.className = "product-tag";
+  tag.textContent = item.tag;
+
+  const name = document.createElement("h4");
+  name.textContent = item.name;
+
+  const text = document.createElement("p");
+  text.textContent = item.text;
+
+  const link = document.createElement("a");
+  link.href = makeSearchLink(item.query);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Поиск в Золотом Яблоке ↗️";
+  link.setAttribute(
+    "aria-label",
+    "Искать " + item.name + " в Золотом Яблоке, новая вкладка"
+  );
+
+  card.append(tag, name, text, link);
+  return card;
+}
+
+const catalog = document.getElementById("catalog-content");
+
+categories.forEach(category => {
+  const heading = document.createElement("div");
+  heading.className = "category-heading";
+
+  const number = document.createElement("span");
+  number.textContent = category.number;
+
+  const title = document.createElement("h3");
+  title.textContent = category.title;
+
+  heading.append(number, title);
+
+  const grid = document.createElement("div");
+  grid.className = "product-grid";
+
+  category.items.forEach(item => grid.append(createProduct(item)));
+
+  catalog.append(heading, grid);
+});
+
+document.querySelectorAll("[data-search]").forEach(link => {
+  link.href = makeSearchLink(link.dataset.search);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.title = "Поиск в Золотом Яблоке — новая вкладка";
+});
+
+document.querySelectorAll("[data-print]").forEach(button => {
+  button.addEventListener("click", () => window.print());
+});
+</script>
+
+</body>
+</html>
